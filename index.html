@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>MirandaPet</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Pantalla de inicio (elige nombre) -->
+  <div id="startScreen" class="overlay">
+    <div class="overlay-box">
+      <h2>Bienvenido a MirandaPet 🐾</h2>
+      <label for="petNameInput">Elige un nombre:</label><br>
+      <input id="petNameInput" type="text" placeholder="Ej. Miranda" /><br>
+      <button id="startBtn">Comenzar</button>
+      <p class="small">El nombre se guardará si quieres conservarlo en futuras sesiones.</p>
+    </div>
+  </div>
+
+  <!-- Top bar -->
+  <header class="top-bar">
+    <div class="left-top">
+      <span id="coinsDisplay">🪙 15</span>
+    </div>
+    <div class="center-top">
+      <div class="pet-name-box"><h2 id="petName">MirandaPet</h2></div>
+    </div>
+    <div class="right-top menu-buttons">
+      <button id="openGames">🎮 Juegos</button>
+      <button id="openShop">🛒 Tienda</button>
+      <button id="openInv">🎒 Inventario</button>
+      <button id="openNotes">📝 Recordatorios</button>
+      <button id="btnReiniciar">🔄 Reiniciar</button>
+    </div>
+  </header>
+
+  <!-- Pet area (centrada) -->
+  <main class="pet-area">
+    <img id="petImg" src="feliz.png" alt="MirandaPet" />
+  </main>
+
+  <!-- Estadísticas (abajo) -->
+  <section class="stats">
+    <div>Hambre: <progress id="barraHambre" value="50" max="100"></progress></div>
+    <div>Sueño: <progress id="barraSueno" value="70" max="100"></progress></div>
+    <div>Entretenimiento: <progress id="barraEntretenimiento" value="50" max="100"></progress></div>
+    <div>Salud: <progress id="barraSalud" value="100" max="100"></progress></div>
+  </section>
+
+  <!-- Acciones rápidas -->
+  <section class="actions">
+    <button id="btnAlimentar">🍎 Alimentar</button>
+    <button id="btnJugar">⚽ Jugar</button>
+    <button id="btnDormir">💤 Dormir</button>
+  </section>
+
+  <!-- ---------- MODALES ---------- -->
+
+  <!-- Modal Juegos (lista) -->
+  <div id="modalJuegos" class="modal">
+    <div class="modal-content">
+      <span class="close" data-close="modalJuegos">&times;</span>
+      <h3>🎮 Juegos</h3>
+      <p>Selecciona un juego:</p>
+      <div class="games-grid">
+        <button id="openSnake">🐍 Viborita</button>
+        <div class="game-slot">🔒 Próximamente</div>
+        <div class="game-slot">🔒 Próximamente</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Viborita -->
+  <div id="modalSnake" class="modal">
+    <div class="modal-content large">
+      <span class="close" data-close="modalSnake">&times;</span>
+      <h3>🐍 Viborita</h3>
+      <canvas id="snakeCanvas" width="400" height="400" style="background:#fafafa;border:1px solid #ccc"></canvas>
+      <div>
+        <button id="startSnake">Iniciar</button>
+        <button id="stopSnake">Detener</button>
+        <span id="snakeScore">Puntaje: 0</span>
+      </div>
+      <p class="small">Al comer manzanas en el juego ganas monedas y entretenimiento.</p>
+    </div>
+  </div>
+
+  <!-- Modal Tienda -->
+  <div id="modalShop" class="modal">
+    <div class="modal-content">
+      <span class="close" data-close="modalShop">&times;</span>
+      <h3>🛒 Tienda</h3>
+      <div class="shop-item">
+        <span>🍎 Manzana — 5 🪙</span>
+        <button id="buyApple">Comprar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Inventario -->
+  <div id="modalInv" class="modal">
+    <div class="modal-content">
+      <span class="close" data-close="modalInv">&times;</span>
+      <h3>🎒 Inventario</h3>
+      <div id="inventoryList"></div>
+
+      <div id="useBox" style="display:none; margin-top:10px;">
+        <p id="useItemLabel"></p>
+        <label>Cantidad: <input type="number" id="useAmount" min="1" value="1" /></label>
+        <button id="confirmUse">Usar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Recordatorios -->
+  <div id="modalNotes" class="modal">
+    <div class="modal-content">
+      <span class="close" data-close="modalNotes">&times;</span>
+      <h3>📝 Recordatorios</h3>
+      <input id="noteTitle" placeholder="Título" /><br>
+      <textarea id="noteBody" placeholder="Contenido..." rows="4"></textarea><br>
+      <button id="saveNote">Guardar</button>
+      <div id="notesList" style="margin-top:10px;"></div>
+    </div>
+  </div>
+
+  <!-- Alertas flotantes -->
+  <div id="alerts"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
