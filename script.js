@@ -467,11 +467,12 @@ document.querySelectorAll('.modal').forEach(mod => {
 
 /* ---------- On load: actualizar UI y renderizar datos guardados ---------- */
 petNameEl.textContent = localStorage.getItem("mp_name") || "MirandaPet";
-const appCommands = matar() {
+const appCommands = {
    morir();
 };
 renderInventory();
 renderNotes();
 updateUI();
+
 
 
