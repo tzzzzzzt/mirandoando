@@ -469,8 +469,9 @@ document.querySelectorAll('.modal').forEach(mod => {
 petNameEl.textContent = localStorage.getItem("mp_name") || "MirandaPet";
 const appCommands = matar() {
    morir();
-}
+};
 renderInventory();
 renderNotes();
 updateUI();
+
 
